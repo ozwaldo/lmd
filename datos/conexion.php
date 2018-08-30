@@ -8,15 +8,16 @@ require_once 'db.php';
  */
 class Conexion
 {
-
   private static $bd = null;
   private static $pdo;
-
   function __construct()
   {
-
+    try {
+      self::conectar();
+    } catch (PDOException $e) {
+      echo "<h2>Error en la conexión con la base de datos.</h2> " . $e;
+    }
   }
-
   public function conectar()
   {
     if (self::$pdo == null) {
@@ -33,7 +34,7 @@ class Conexion
     return self::$pdo;
   }
 
-  public function getInstancia()
+  public static function getInstancia()
   {
     if (self::$bd == null) {
       self::$bd = new self();
@@ -41,6 +42,8 @@ class Conexion
     return self::$bd;
   }
 
+  function __destruct() {
+    self::$pdo = null;
+  }
 }
-
 ?>
