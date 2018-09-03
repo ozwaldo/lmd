@@ -1,5 +1,5 @@
 <?php
-  echo phpinfo();
+  require_once "datos/conexion.php";
 
-
+  print_r(Conexion::getInstancia());
 ?>
