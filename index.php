@@ -1,29 +1,31 @@
-<?php
-  require_once "datos/conexion.php";
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Insertar</title>
+  </head>
+  <body>
+    <form  action="guardar.php" method="post">
+      <fieldset>
+        <legend>Guardar Usuario</legend>
+        <div>
+          <input type="text" name="nombre" placeholder="Nombre">
+        </div><br>
+        <div>
+          <input type="password" name="password" placeholder="Contraseña">
+        </div><br>
+        <div>
+          <input type="text" name="claveapi" placeholder="Clave API">
+        </div><br>
+        <div>
+          <input type="email" name="email" placeholder="Email">
+        </div><br>
+        <div>
+          <input type="submit" value="Guardar">
+          <input type="reset"  value="Limpiar">
+        </div><br>
 
-  //print_r(Conexion::getInstancia());
-
-$pdo = Conexion::getInstancia()->conectar();
-
-$sql = "INSERT INTO usuario (nombre,contrasena,claveApi,correo)".
-      " VALUES (?,?,?,?)";
-$query = $pdo->prepare($sql);
-$nombre = "juan";
-$query->bindParam(1,$nombre);
-$password = password_hash("123",PASSWORD_BCRYPT);
-echo $password;
-$query->bindParam(2,$password);
-$clave = MD5("juan123");
-$query->bindParam(3,$clave);
-$email = "juan@mail.com";
-$query->bindParam(4,$email);
-$result = $query->execute();
-if ($result) {
-  echo "Operación exitosa.";
-} else {
-  echo "Error al realizar la operación.";
-}
-
-
-
-?>
+      </fieldset>
+    </form>
+  </body>
+</html>
