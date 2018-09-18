@@ -24,7 +24,8 @@
           <input type="submit" value="Guardar">
           <input type="reset"  value="Limpiar">
         </div><br>
-        <a href="seleccionar.php">Ver registros</a>
+        <a href="seleccionar.php">Ver registros</a><br>
+        <a href="seleccionarId.php">Buscar por Id</a>
       </fieldset>
     </form>
   </body>
