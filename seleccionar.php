@@ -2,7 +2,8 @@
 //seleccionar.php
 require_once "datos/conexion.php";
 
-$sql = "SELECT idUsuario, nombre, contrasena, claveApi, correo, fechaRegistro FROM usuario";
+//$sql = "SELECT idUsuario, nombre, contrasena, claveApi, correo, fechaRegistro FROM usuario";
+$sql = "CALL getUsuariosProc()";
 try {
   $pdo = Conexion::getInstancia()->conectar();
   $query = $pdo->query($sql);
