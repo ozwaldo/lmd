@@ -20,6 +20,8 @@ try {
     <th>Clave Api</th>
     <th>Correo</th>
     <th>Fecha Registro</th>
+    <th>Actualizar</th>
+    <th>Eliminar</th>
   </tr>
   <?php while ($r = $query->fetch()): ?>
     <tr>
@@ -29,6 +31,8 @@ try {
       <td><?php echo($r['claveApi']) ?></td>
       <td><?php echo($r['correo']) ?></td>
       <td><?php echo($r['fechaRegistro']) ?></td>
+      <td><a href='actualizar.php?idusuario=<?php echo($r["idUsuario"]) ?>'>Actualizar</a></td>
+      <td><a href="eliminar.php">Eliminar</a></td>
     </tr>
   <?php endwhile; ?>
 </table>

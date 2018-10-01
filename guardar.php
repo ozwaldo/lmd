@@ -8,13 +8,15 @@ $clave = MD5($_POST['claveapi']);
 $email = $_POST['email'];
 
 $pdo = Conexion::getInstancia()->conectar();
-$sql = "INSERT INTO usuario (nombre,contrasena,claveApi,correo)".
-      " VALUES (?,?,?,?)";
+//$sql = "INSERT INTO usuario (nombre,contrasena,claveApi,correo)".
+//      " VALUES (?,?,?,?)";
+$sql = "CALL insert_usuario(?,?,?,?,?)":
 $query = $pdo->prepare($sql);
 $query->bindParam(1,$nombre);
 $query->bindParam(2,$password);
 $query->bindParam(3,$clave);
 $query->bindParam(4,$email);
+$query->bindParam(5,$fecha);
 $result = $query->execute();
 if ($result) {
   echo "Operación exitosa.";
