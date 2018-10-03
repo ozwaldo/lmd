@@ -15,13 +15,17 @@
               contrasena = :password,
               claveApi = :claveapi,
               correo = :correo
-            WHERE idUsuario = :idUsuario';
+            WHERE idUsuario = :idusuario';
 
   $pdo = Conexion::getInstancia()->conectar();
   $query = $pdo->prepare($sql);
   $result = $query->execute($usaurio);
 
-
+  if ($result) {
+    header("Location: seleccionar.php");
+  } else {
+    echo "Error al actualizar el registro.";
+  }
   else:
     $idUsuario = $_GET['idusuario'];
     $pdo = Conexion::getInstancia()->conectar();

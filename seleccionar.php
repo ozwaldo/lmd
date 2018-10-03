@@ -32,7 +32,7 @@ try {
       <td><?php echo($r['correo']) ?></td>
       <td><?php echo($r['fechaRegistro']) ?></td>
       <td><a href='actualizar.php?idusuario=<?php echo($r["idUsuario"]) ?>'>Actualizar</a></td>
-      <td><a href="eliminar.php">Eliminar</a></td>
+      <td><a href="eliminar.php?idusuario=<?php echo($r["idUsuario"]) ?>">Eliminar</a></td>
     </tr>
   <?php endwhile; ?>
 </table>
